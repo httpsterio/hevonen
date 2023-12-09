@@ -4,27 +4,25 @@
     <title>HEVOSEN PÄÄ</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 </head>
 
 <body>
-    <video autoplay loop>
-        <source src="horse_loop.webm" type="video/webm" />
-        <source src="horse_loop.mp4" type="video/mp4" />
-    </video>
-    <audio id="audio" loop="loop">
-        <source src="hevonen.mp3" type="audio/mpeg" />
-    </audio>
-    <script type="text/javascript">
-        function autoplay() {
-            var r = confirm("Would You Like To AutoPlay Music?");
-            if (r == true) {
-                document.getElementById("audio").play();
-            }
-        }
-    </script>
-    <script>
-        autoplay();
-    </script>
+<div class="container">
+	<video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
+			<source src="horse_loop.mp4" type="video/mp4" size="1080">
+	</video>
+</div>
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+<script>
+    // Change the second argument to your options:
+// https://github.com/sampotts/plyr/#options
+const player = new Plyr('video', {captions: {active: true}});
+
+// Expose player so it can be used from the console
+window.player = player;
+</script>
 </body>
 
 </html>
