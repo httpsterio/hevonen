@@ -8,17 +8,19 @@
 </head>
 
 <body>
-<div class="container">
-	<video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
-			<source src="horse_loop.mp4" type="video/mp4" size="1080">
-	</video>
+<video id="videoplayer" playsinline controls data-poster="hevonen.jpg">
+  <source src="horse_loop.mp4" type="video/mp4" />
+  <source src="horse_loop.webm" type="video/webm" />
+</video>
+<audio id="audioplayer" controls>
+  <source src="hevonen.mp3" type="audio/mp3" />
+</audio>
 </div>
 <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
 
 <script>
-    // Change the second argument to your options:
-// https://github.com/sampotts/plyr/#options
-const player = new Plyr('video', {captions: {active: true}});
+const players = Plyr.setup('videoplayer, audioplayer');
+
 
 // Expose player so it can be used from the console
 window.player = player;
